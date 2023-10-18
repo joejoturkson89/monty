@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "monty.h"
 /**
  * main - main entry point for monty
@@ -7,7 +8,6 @@
  */
 int main(int argc, char **argv)
 {
-	int SQ = 1;
 	FILE *file_in;
 	unsigned int line_number = 0;
 	char *line = NULL;
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 
-	while (getline(&line, &glsize, file_in) != -1)
+	while (fgets(line, glsize, file_in) != NULL)
 	{
 		line_number++;
 		instruction = parse_line(line);
